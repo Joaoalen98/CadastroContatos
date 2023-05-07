@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/storage/local-storage.service';
 
 @Component({
@@ -13,17 +14,23 @@ export class HeaderComponent implements OnInit {
     exact: true
   };
 
-  constructor(private localStorageService: LocalStorageService) { }
+  constructor(
+    private localStorageService: LocalStorageService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
-    let token = this.localStorageService.getObjecto<string>("token");
-    if (token !== null) {
-      this.logado = true;
-    }
+    this.router.events.subscribe(e => {
+      let token = this.localStorageService.getObjecto<string>("token");
+      if (token !== null) {
+        this.logado = true;
+      }
+    });
   }
 
   logout() {
     this.localStorageService.deletaObjetos(['token', 'usuario']);
-    window.location.reload();
+    this.logado = false;
+    this.router.navigate(['usuario', 'login']);
   }
 }

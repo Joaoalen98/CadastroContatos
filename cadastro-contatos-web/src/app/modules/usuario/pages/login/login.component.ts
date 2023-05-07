@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         next: (objAuth) => {
           this.localStorageService.setObjeto("token", objAuth.token);
           this.localStorageService.setObjeto("usuario", objAuth.usuario);
-          window.location.href = "/usuario";
+          this.router.navigate(['usuario']);
         },
         error: (err) => {
           if (err.error.mensagem) {
