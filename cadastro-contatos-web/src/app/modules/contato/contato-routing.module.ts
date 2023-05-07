@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { NovoContatoComponent } from './novo-contato/novo-contato.component';
-import { EditaContatoComponent } from './edita-contato/edita-contato.component';
+import { EditaContatoComponent } from './pages/edita-contato/edita-contato.component';
+import { HomeComponent } from './pages/home/home.component';
+import { NovoContatoComponent } from './pages/novo-contato/novo-contato.component';
 
 const routes: Routes = [
   {

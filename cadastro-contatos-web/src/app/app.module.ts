@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ContatoModule } from './modules/contato/contato.module';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [

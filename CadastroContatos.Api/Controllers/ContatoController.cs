@@ -25,9 +25,9 @@ namespace CadastroContatos.Api.Controllers
 
 
         [HttpGet("{contatoId}")]
-        public async Task<Contato> ObterContatoPorId([FromRoute] int id)
+        public async Task<Contato> ObterContatoPorId([FromRoute] int contatoId)
         {
-            var contato = await _context.Contatos.FirstOrDefaultAsync(x => x.Id == id);
+            var contato = await _context.Contatos.FirstOrDefaultAsync(x => x.Id == contatoId);
             return contato;
         }
 
