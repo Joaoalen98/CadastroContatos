@@ -31,7 +31,7 @@
                     <a [routerLink]="'edita-contato/' + contato.id" class="btn btn-warning">
                         Editar
                     </a> |
-                    <button class="btn btn-danger">
+                    <button (click)="deletaContato(contato.id)" class="btn btn-danger">
                         Apagar
                     </button>
                 </td>
