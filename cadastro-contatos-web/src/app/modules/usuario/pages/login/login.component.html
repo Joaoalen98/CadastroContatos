@@ -1,0 +1,19 @@
+<div class="login">
+    <h3>Faça login para continuar:</h3>
+    <hr>
+    <div class="col col-md-4">
+        <form [formGroup]="form" (submit)="enviaLogin($event)">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" formControlName="email" class="form-control" id="email" />
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" formControlName="senha" class="form-control" id="senha">
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+
+        <a class="btn-link" routerLink="/usuario/cadastro">Ainda não tenho conta</a>
+    </div>
+</div>

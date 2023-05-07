@@ -1,0 +1,23 @@
+<div class="cadastro">
+    <h3>Faça seu cadastro:</h3>
+    <hr>
+    <div class="col col-md-4">
+        <form [formGroup]="form" (submit)="enviaCadastro($event)">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" formControlName="nome" class="form-control" id="nome" />
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" formControlName="email" class="form-control" id="email" />
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" formControlName="senha" class="form-control" id="senha">
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar-se</button>
+        </form>
+
+        <a class="btn-link" routerLink="/usuario/login">Já possuo conta</a>
+    </div>
+</div>

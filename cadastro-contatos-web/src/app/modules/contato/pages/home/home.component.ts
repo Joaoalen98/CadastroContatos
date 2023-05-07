@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit {
       this.contatosService.deletaContato(id)
         .subscribe({
           next: () => {
-            alert("Deletado com sucesso");
             this.contatos = this.contatos.filter(x => x.id !== id);
           },
           error: (err) => {

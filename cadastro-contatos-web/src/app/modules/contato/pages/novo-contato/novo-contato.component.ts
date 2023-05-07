@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Contato, TipoContato } from 'src/app/interfaces/contato';
 import { ContatosService } from 'src/app/services/api-contatos/contatos.service';
 
@@ -14,9 +15,10 @@ export class NovoContatoComponent implements OnInit {
   erroMsg: string = "";
   form!: FormGroup;
 
-  constructor(private contatoService: ContatosService) {
-
-  }
+  constructor(
+    private contatoService: ContatosService,
+    private router: Router,
+  ) { }
 
 
   ngOnInit(): void {
@@ -42,6 +44,7 @@ export class NovoContatoComponent implements OnInit {
       .subscribe({
         next: () => {
           alert("Contato salvo com sucesso");
+          this.router.navigate(['contatos']);
         },
         error: (err) => {
 
