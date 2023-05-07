@@ -7,6 +7,8 @@ namespace CadastroContatos.Api.Context
     {
         public DbSet<Contato> Contatos { get; set; }
 
+        public DbSet<Usuario> Usuarios { get; set; }
+
         public AppDbContext(DbContextOptions<AppDbContext> dbContext)
             : base(dbContext)
         {

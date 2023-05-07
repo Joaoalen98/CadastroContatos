@@ -1,10 +1,13 @@
 using CadastroContatos.Api.Context;
+using CadastroContatos.Api.DTOs;
 using CadastroContatos.Api.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CadastroContatos.Api.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/contatos")]
     public class ContatoController : Controller
@@ -20,7 +23,9 @@ namespace CadastroContatos.Api.Controllers
         [HttpGet]
         public async Task<IEnumerable<Contato>> ObterContatos()
         {
-            return await _context.Contatos.ToListAsync();
+            return await _context.Contatos
+                .Where(x => x.UsuarioId == int.Parse(User.FindFirst("Id").Value))
+                .ToListAsync();
         }
 
 
@@ -33,11 +38,17 @@ namespace CadastroContatos.Api.Controllers
 
 
         [HttpPost]
-        public async Task<object> CriarContato(Contato model)
+        public async Task<object> CriarContato(ContatoCadastroDTO model)
         {
             try
             {
-                await _context.Contatos.AddAsync(model);
+                await _context.Contatos.AddAsync(new Contato
+                {
+                    Email = model.Email,
+                    Nome = model.Nome,
+                    Telefone = model.Telefone,
+                    UsuarioId = int.Parse(User.FindFirst("Id").Value),
+                });
                 await _context.SaveChangesAsync();
 
                 return StatusCode(201);

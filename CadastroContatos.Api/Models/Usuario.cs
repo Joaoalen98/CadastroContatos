@@ -1,6 +1,6 @@
 namespace CadastroContatos.Api.Models
 {
-    public class Contato
+    public class Usuario
     {
         public int Id { get; set; }
 
@@ -8,8 +8,6 @@ namespace CadastroContatos.Api.Models
 
         public string Email { get; set; }
 
-        public string Telefone { get; set; }
-
-        public int? UsuarioId { get; set; }
+        public string Senha { get; set; }
     }
 }

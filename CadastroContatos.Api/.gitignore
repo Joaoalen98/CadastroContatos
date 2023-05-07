@@ -477,4 +477,4 @@ $RECYCLE.BIN/
 *.lnk
 
 *.vscode
-app.db
+*app.db*
